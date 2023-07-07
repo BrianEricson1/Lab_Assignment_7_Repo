@@ -18,10 +18,7 @@ int numOfSwaps(int arr[], int size){
         count ++;
       }
     }
-    if((count-temp)==0){
-      break;
-      //if change in count is 0, then list is already sorted
-    }
+    printf("%d ", count-temp);
   }
   return count;
 }
@@ -52,7 +49,7 @@ void main(void) {
      #5: 1 - 13,7,16,22,45,58,63,72,97
      #6: 1 - 7,13,16,22,45,58,63,72,97
   */
-  printf("%d\n", numOfSwaps(arr,9));
+  printf("\n\nTotal Number of Swaps: %d\n", numOfSwaps(arr,9));
   printf("\nList after bubble sort: ");
   for(int i = 0; i < 9; i++)
     printf("%d ", arr[i]);
