@@ -17,8 +17,28 @@ int numOfSwaps(int arr[], int size){
         count ++;
       }
     }
+    if(count==0){
+      break;
+      //if count is 0 after first iteration, then list is already sorted
+    }
   }
   return count;
+}
+
+//recursive bubble sort
+int numOfSwapsRec(int arr[], int size, int j, int count){
+  if(j >= size-1){
+    if(size==0){
+      return count;
+    }
+    size--;
+    j = 0;
+  }
+  if(arr[j] >= arr[j+1]){
+    swap(arr, j, j+1);
+    count++;
+  }
+  return numOfSwapsRec(arr, size, (j+1), count);
 }
 
 void main(void) {
@@ -31,11 +51,8 @@ void main(void) {
      #5: 1 - 13,7,16,22,45,58,63,72,97
      #6: 1 - 7,13,16,22,45,58,63,72,97
   */
-  printf("\nList before bubble sort: ");
-  for(int i = 0; i < 9; i++)
-    printf("%d ", arr[i]);
-  printf("\n\nNumber of Swaps: %d", numOfSwaps(arr,9));
-  printf("\n\nList after bubble sort: ");
+  printf("%d\n", numOfSwaps(arr,9));
+  printf("\nList after bubble sort: ");
   for(int i = 0; i < 9; i++)
     printf("%d ", arr[i]);
 }
